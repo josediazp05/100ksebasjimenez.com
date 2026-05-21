@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beca Exclusiva 100K — Mentoría Airbnb</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --red: #FF385C;
+      --red-dark: #C8102E;
+      --red-light: #FFF0F3;
+      --red-muted: #FFD6DF;
+      --dark: #101010;
+      --dark-2: #181818;
+      --dark-card: #1E1E1E;
+      --white: #FFFFFF;
+      --gray-50: #F7F7F7;
+      --gray-100: #EFEFEF;
+      --gray-200: #E0E0E0;
+      --gray-400: #717171;
+      --gray-500: #969696;
+      --text: #111111;
+      --text-2: #2E2E2E;
+      --text-3: #525252;
+    }
+
+    body {
+      font-family: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .icon {
+      display: block;
+      flex-shrink: 0;
+    }
+
+    /* ────────────────────────────────
+       STICKY HEADER
+    ──────────────────────────────── */
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--dark);
+      border-bottom: 1px solid #222;
+      height: 58px;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .sticky-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      flex-shrink: 0;
+    }
+
+    .sticky-logo-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      background: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .sticky-urgency {
+      font-size: 13px;
+      color: #777;
+      flex: 1;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .sticky-urgency strong {
+      color: #ccc;
+      font-weight: 600;
+    }
+
+    .sticky-cta {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      color: white;
+      background: var(--red);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: filter 0.15s;
+    }
+
+    .sticky-cta:hover {
+      filter: brightness(1.1);
+    }
+
+    /* ────────────────────────────────
+       SHARED LAYOUT
+    ──────────────────────────────── */
+    .inner {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    /* ────────────────────────────────
+       SECTION LABEL
+    ──────────────────────────────── */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--red);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      background: var(--red-light);
+      border: 1px solid var(--red-muted);
+      border-radius: 100px;
+      padding: 5px 13px 5px 9px;
+    }
+
+    .section-label--dark {
+      background: rgba(255, 56, 92, 0.12);
+      border-color: rgba(255, 56, 92, 0.25);
+      color: #ff8fa3;
+    }
+
+    .section-label-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* ────────────────────────────────
+       CTA BUTTON
+    ──────────────────────────────── */
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 10px;
+      border: 1px solid #F14B4B;
+      background: radial-gradient(105.71% 105.71% at 50% -5.71%, #FF637F 0%, #FF2A50 34.87%, #DC253A 100%);
+      box-shadow: 0px 4px 4px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 0px 0px #A50E0E;
+      min-height: 67px;
+      padding: 0 36px;
+      color: #fff;
+      font-family: 'Figtree', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: filter 0.15s, transform 0.12s, box-shadow 0.12s;
+      text-wrap: balance;
+      text-align: center;
+    }
+
+    .cta-btn:hover {
+      filter: brightness(1.07);
+    }
+
+    .cta-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0px 2px 2px 0px rgba(255, 255, 255, 0.2) inset, 0px 1px 0px 0px #A50E0E;
+    }
+
+    .cta-block {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .cta-block--center {
+      align-items: center;
+    }
+
+    .microcopy {
+      font-size: 0.78rem;
+      color: var(--gray-500);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .microcopy--dark {
+      color: #555;
+    }
+
+    /* ────────────────────────────────
+       HERO
+    ──────────────────────────────── */
+    .hero {
+      background: var(--white);
+      padding: 4rem 2rem 4.5rem;
+    }
+
+    .hero-stack {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2.5rem;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @media (max-width: 767px) {
+      .hero-stack {
+        text-align: left;
+        align-items: stretch;
+        gap: 28px;
+      }
+
+      .hero-video {
+        margin-top: -16px;
+      }
+
+      .hero-content {
+        align-items: flex-start;
+      }
+
+      .headline {
+        font-size: clamp(1.25rem, 5.2vw, 2rem);
+        line-height: 1.18;
+        word-break: break-word;
+        hyphens: auto;
+      }
+    }
+
+    .hero-video {
+      width: 100%;
+    }
+
+    .agendar-block {
+      width: 100%;
+      scroll-margin-top: 24px;
+    }
+
+    .agendar-title {
+      font-size: clamp(1.625rem, 4vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+    }
+
+    .agendar-frame {
+      width: 100%;
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--white);
+      min-height: 720px;
+    }
+
+    .agendar-frame iframe {
+      width: 100%;
+      min-height: 720px;
+      display: block;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--red-light);
+      color: var(--red);
+      font-size: 0.625rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      padding: 5px 13px;
+      border-radius: 100px;
+      border: 1px solid var(--red-muted);
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+    }
+
+    .for-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--gray-400);
+      margin-bottom: 1.5rem;
+    }
+
+    .headline {
+      font-size: clamp(1.6rem, 4.6vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.12;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+    }
+
+    .headline em {
+      font-style: normal;
+      color: var(--red);
+    }
+
+    .sub {
+      font-size: 1.03rem;
+      color: var(--text-3);
+      line-height: 1.75;
+      margin-bottom: 1.75rem;
+    }
+
+    .sub strong {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .urgency {
+      border-left: 3px solid var(--red);
+      border-radius: 0 10px 10px 0;
+      background: var(--red-light);
+      padding: 12px 16px;
+      margin-bottom: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-2);
+      line-height: 1.65;
+    }
+
+    .urgency strong {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .video-embed {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--gray-200);
+      position: relative;
+      background: var(--gray-50);
+    }
+
+    .video-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    /* ────────────────────────────────
+       STATS / QUIÉNES SOMOS (dark)
+    ──────────────────────────────── */
+    .stats-section {
+      background: var(--dark);
+      padding: 5rem 2rem;
+    }
+
+    .stats-grid {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .stats-text h2 {
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 800;
+      color: white;
+      margin-bottom: 1rem;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+    }
+
+    .stats-text p {
+      font-size: 1.03rem;
+      color: #888;
+      line-height: 1.75;
+    }
+
+    .stats-text p strong {
+      color: white;
+      font-weight: 600;
+    }
+
+    .stats-numbers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .nstat {
+      background: var(--dark-card);
+      border: 1px solid #242424;
+      border-radius: 14px;
+      padding: 1.25rem 1rem;
+      text-align: center;
+    }
+
+    .nstat-num {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--red);
+      margin-bottom: 4px;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .nstat-label {
+      font-size: 0.68rem;
+      color: #666;
+      line-height: 1.4;
+    }
+
+    /* ────────────────────────────────
+       AIRBNB COLLAB (red-tinted)
+    ──────────────────────────────── */
+    .airbnb-section {
+      background: var(--red-light);
+      border-top: 1px solid var(--red-muted);
+      border-bottom: 1px solid var(--red-muted);
+      padding: 5rem 2rem;
+    }
+
+    .airbnb-layout {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .airbnb-card {
+      background: white;
+      border: 1px solid var(--red-muted);
+      border-radius: 16px;
+      padding: 1.75rem;
+    }
+
+    .airbnb-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .airbnb-logo-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 11px;
+      background: var(--red-light);
+      border: 1px solid var(--red-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--red);
+    }
+
+    .airbnb-collab-tag {
+      font-size: 0.68rem;
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .airbnb-collab-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.3;
+    }
+
+    .airbnb-desc {
+      font-size: 1.1rem;
+      color: var(--text-2);
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    .airbnb-stat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--red-light);
+      border: 1px solid var(--red-muted);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--red);
+    }
+
+    /* ────────────────────────────────
+       TESTIMONIALS (white)
+    ──────────────────────────────── */
+    .testimonios-section {
+      background: white;
+      padding: 5rem 2rem;
+    }
+
+    .section-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-header.is-center {
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: clamp(1.625rem, 3vw, 2.375rem);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.025em;
+    }
+
+    .section-title em {
+      font-style: normal;
+      color: var(--red);
+    }
+
+    .section-title--white {
+      color: white;
+    }
+
+    .section-sub {
+      font-size: 1.03rem;
+      color: var(--text-3);
+      line-height: 1.7;
+    }
+
+    .section-sub.is-center {
+      margin: 0 auto;
+    }
+
+    .section-sub--dark {
+      color: #777;
+    }
+
+    .section-sub strong {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .section-sub--dark strong {
+      color: white;
+    }
+
+    .testimonios-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .testimonio {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stars {
+      color: var(--red);
+      font-size: 0.8125rem;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+
+    .result-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--red-light);
+      border: 1px solid var(--red-muted);
+      border-radius: 100px;
+      padding: 3px 10px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--red);
+      margin-bottom: 12px;
+      width: fit-content;
+    }
+
+    .testimonio-text {
+      font-size: 0.9rem;
+      color: var(--text-2);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+
+    .testimonio-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--red-light);
+      border: 1px solid var(--red-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--red);
+      flex-shrink: 0;
+    }
+
+    .author-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .author-detail {
+      font-size: 0.72rem;
+      color: var(--gray-500);
+      margin-top: 1px;
+    }
+
+    /* ────────────────────────────────
+       RESULTADOS (gray)
+    ──────────────────────────────── */
+    .resultados-section {
+      background: var(--gray-50);
+      padding: 5rem 2rem;
+    }
+
+    .resultados-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 2.5rem;
+    }
+
+    .resultado {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border: 1px solid var(--gray-200);
+      border-radius: 14px;
+      background: var(--white);
+      padding: 1.25rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .resultado:hover {
+      border-color: var(--red-muted);
+      box-shadow: 0 2px 14px rgba(255, 56, 92, 0.07);
+    }
+
+    .resultado-num {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--red);
+      background: var(--red-light);
+      border: 1px solid var(--red-muted);
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .resultado-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+      line-height: 1.35;
+    }
+
+    .resultado-desc {
+      font-size: 0.83rem;
+      color: var(--text-3);
+      line-height: 1.65;
+    }
+
+    .disclaimer-box {
+      margin-top: 1.5rem;
+      background: var(--white);
+      border-radius: 12px;
+      border: 1px solid var(--gray-200);
+      padding: 14px 18px;
+      font-size: 0.8rem;
+      color: var(--gray-500);
+      line-height: 1.65;
+    }
+
+    /* ────────────────────────────────
+       BONOS (dark)
+    ──────────────────────────────── */
+    .bonos-section {
+      background: var(--dark);
+      padding: 5rem 2rem;
+    }
+
+    .bonos-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 2.5rem;
+    }
+
+    .bono {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--dark-card);
+      border-radius: 14px;
+      border: 1px solid #242424;
+      padding: 18px 20px;
+    }
+
+    .bono.destacado {
+      background: rgba(255, 56, 92, 0.08);
+      border: 1px solid rgba(255, 56, 92, 0.2);
+    }
+
+    .bono-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 56, 92, 0.12);
+      border: 1px solid rgba(255, 56, 92, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: #ff8fa3;
+    }
+
+    .bono-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: white;
+      line-height: 1.4;
+      margin-bottom: 2px;
+    }
+
+    .bono-desc {
+      font-size: 0.83rem;
+      color: #666;
+      line-height: 1.55;
+    }
+
+    .bono.destacado .bono-desc {
+      color: #999;
+    }
+
+    .bono-badge {
+      display: inline-flex;
+      align-items: center;
+      background: var(--red);
+      color: #fff;
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      padding: 3px 9px;
+      border-radius: 100px;
+      margin-bottom: 6px;
+    }
+
+    /* ────────────────────────────────
+       PARA QUIÉN (white)
+    ──────────────────────────────── */
+    .paraquien-section {
+      background: white;
+      padding: 5rem 2rem;
+    }
+
+    .checks-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 2rem;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--text-2);
+      line-height: 1.65;
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: 14px;
+      padding: 1.1rem 1.2rem;
+    }
+
+    .check-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--red-light);
+      border: 1px solid var(--red-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: var(--red);
+    }
+
+    /* ────────────────────────────────
+       FINAL CTA (dark)
+    ──────────────────────────────── */
+    .final-cta-section {
+      background: var(--dark);
+      padding: 6rem 2rem 5rem;
+      text-align: center;
+      border-top: 1px solid #1e1e1e;
+    }
+
+    .final-cta-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .final-cta-inner h2 {
+      font-size: clamp(1.75rem, 4.5vw, 3rem);
+      font-weight: 800;
+      color: white;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.028em;
+      line-height: 1.15;
+    }
+
+    .final-cta-inner h2 em {
+      font-style: normal;
+      color: var(--red);
+    }
+
+    .final-cta-inner p {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 2.5rem;
+      line-height: 1.75;
+    }
+
+    .final-disclaimer {
+      font-size: 0.72rem;
+      color: #444;
+      line-height: 1.8;
+      margin-top: 1.5rem;
+    }
+
+    /* ────────────────────────────────
+       RESPONSIVE — TABLET (≥768px)
+    ──────────────────────────────── */
+    @media (min-width: 768px) {
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+      }
+
+      .stats-numbers {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .airbnb-layout {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+      }
+
+      .testimonios-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .resultados-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .bonos-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .bono.span-2 {
+        grid-column: span 2;
+      }
+    }
+
+    /* ────────────────────────────────
+       RESPONSIVE — DESKTOP (≥1100px)
+    ──────────────────────────────── */
+    @media (min-width: 1100px) {
+      .checks-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    /* ────────────────────────────────
+       RESPONSIVE — MOBILE (<600px)
+    ──────────────────────────────── */
+    @media (max-width: 599px) {
+      .hero {
+        padding: 2.5rem 1.25rem 3rem;
+      }
+
+      .stats-section,
+      .airbnb-section,
+      .testimonios-section,
+      .resultados-section,
+      .bonos-section,
+      .paraquien-section,
+      .final-cta-section {
+        padding: 3.5rem 1.25rem;
+      }
+
+      .checks-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-btn {
+        width: 100%;
+      }
+
+      .cta-block {
+        align-items: stretch;
+      }
+
+      .hero-stack {
+        text-align: left;
+        align-items: stretch;
+        gap: 1.75rem;
+      }
+
+      .hero-content {
+        align-items: flex-start;
+      }
+
+      .badge,
+      .section-label,
+      .bono-badge {
+        font-size: 0.8rem;
+      }
+
+      /* min 1rem para todo el cuerpo de texto en mobile */
+      .sub,
+      .urgency,
+      .section-sub,
+      .stats-text p,
+      .testimonio-text,
+      .resultado-desc,
+      .bono-desc,
+      .check-item,
+      .disclaimer-box,
+      .final-cta-inner p,
+      .airbnb-desc,
+      .microcopy {
+        font-size: 1rem;
+        line-height: 1.65;
+      }
+
+      /* títulos de cards un poco más grandes */
+      .resultado-title {
+        font-size: 1.05rem;
+      }
+
+      .bono-title {
+        font-size: 1.05rem;
+      }
+
+      .airbnb-collab-title {
+        font-size: 1.15rem;
+      }
+
+      .author-name {
+        font-size: 1rem;
+      }
+
+      .author-detail {
+        font-size: 0.9rem;
+      }
+
+      .nstat-label {
+        font-size: 0.85rem;
+      }
+
+      .result-pill,
+      .airbnb-collab-tag {
+        font-size: 0.78rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════
+     HERO
+════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-stack">
+
+      <div class="hero-content">
+        <div class="badge">
+          <i data-lucide="award" class="icon" width="12" height="12"></i>
+          Beca exclusiva · Celebración 100K
+        </div>
+        <div class="for-pill">
+          <i data-lucide="home" class="icon" width="13" height="13"></i>
+          Exclusivo para anfitriones de Airbnb
+        </div>
+        <h1 class="headline">
+          Llegamos a 100K. Y lo primero que pensé fue: quiero darte una beca para <em>cambiar tus números.</em>
+        </h1>
+        <p class="sub">
+          No un live, no un PDF. <strong>Una beca real de acceso a mi mentoría</strong> — para que subas tu ocupación y
+          tu tarifa por noche, con acompañamiento directo, y con condiciones que <strong>solo existen esta
+            semana</strong> para las personas de esta comunidad.
+        </p>
+        <div class="urgency">
+          <strong>Las becas cierran el viernes.</strong> Una vez que confirme el grupo arrancamos — no hay reapertura ni
+          lista de espera.
+        </div>
+      </div>
+
+      <div class="hero-video">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/7rB5SCXaxWU?rel=0" allowfullscreen
+            title="Video de presentación"></iframe>
+        </div>
+      </div>
+
+      <div id="agendar" class="agendar-block">
+        <h2 class="agendar-title">Agendar llamada ahora</h2>
+        <div class="agendar-frame">
+          <iframe src="https://api.leadconnectorhq.com/widget/booking/YlbTBSPfiODiKkkJCkqv"
+            style="width:100%;border:none;overflow:hidden;" scrolling="no"
+            id="YlbTBSPfiODiKkkJCkqv_1779309270645"></iframe>
+          <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+     STATS / QUIÉNES SOMOS (dark)
+════════════════════════════════════ -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stats-text">
+        <div class="section-label section-label--dark">
+          <span class="section-label-dot"></span>
+          Quiénes somos
+        </div>
+        <h2>8 años haciendo exactamente<br>lo mismo que tú haces.</h2>
+        <p style="margin-top: 1rem;">Llevamos <strong>8 años siendo anfitriones de Airbnb</strong> — no solo enseñando,
+          sino viviendo lo mismo que tú vives. Hoy gestionamos directamente <strong>más de 130 alojamientos</strong> y
+          acompañamos a anfitriones en toda Latinoamérica a construir un negocio rentable y escalable.</p>
+      </div>
+      <div class="stats-numbers">
+        <div class="nstat">
+          <p class="nstat-num">8 años</p>
+          <p class="nstat-label">Como anfitriones activos</p>
+        </div>
+        <div class="nstat">
+          <p class="nstat-num">+130</p>
+          <p class="nstat-label">Alojamientos gestionados hoy</p>
+        </div>
+        <div class="nstat">
+          <p class="nstat-num">+4,000</p>
+          <p class="nstat-label">Anfitriones acompañados</p>
+        </div>
+        <div class="nstat">
+          <p class="nstat-num">100K</p>
+          <p class="nstat-label">Comunidad activa</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+     AIRBNB COLLAB (red-tinted)
+════════════════════════════════════ -->
+  <section class="airbnb-section">
+    <div class="airbnb-layout">
+
+      <div>
+        <div class="section-label">
+          <span class="section-label-dot"></span>
+          Colaboración oficial
+        </div>
+        <div class="airbnb-card">
+          <div class="airbnb-top">
+            <div>
+              <p class="airbnb-collab-tag">Colaboración oficial</p>
+              <p class="airbnb-collab-title">Los únicos en Latinoamérica en colaborar directamente con Airbnb</p>
+            </div>
+          </div>
+          <p class="airbnb-desc">Hemos trabajado de la mano con Airbnb para capacitar a miles de anfitriones en la
+            región — una colaboración que ningún otro Mentor de Airbnb puede decir que tiene.</p>
+        </div>
+      </div>
+
+      <div class="video-embed" style="border: 1px solid var(--red-muted);">
+        <iframe src="https://www.youtube.com/embed/KgqfNy6zlsk?rel=0" allowfullscreen
+          title="Colaboración con Airbnb"></iframe>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+     TESTIMONIOS (white)
+════════════════════════════════════ -->
+  <section class="testimonios-section">
+    <div class="inner">
+      <div class="section-header">
+        <div class="section-label">
+          <span class="section-label-dot"></span>
+          Lo que dicen los anfitriones
+        </div>
+        <h2 class="section-title">Resultados reales,<br>en números.</h2>
+      </div>
+
+      <div class="testimonios-grid">
+
+        <div class="testimonio">
+          <div class="stars">★★★★★</div>
+          <div class="result-pill">
+            <i data-lucide="trending-up" class="icon" width="11" height="11"></i>
+            Del 55% al 83% · $4K a $10K · 40 propiedades
+          </div>
+          <p class="testimonio-text">"Desde el día uno que empezamos a aplicar las estrategias, nuestro negocio hizo un
+            click impresionante. Antes facturábamos $4,000 en enero — en mayo, sin llegar a la mitad del mes, ya
+            llevábamos $10,000. La ocupación se disparó, la facturación se disparó."</p>
+          <div class="testimonio-author">
+            <div class="avatar">AV</div>
+            <div>
+              <p class="author-name">Ana María y Vladimir — Flip and Host</p>
+              <p class="author-detail">40 propiedades · Colombia</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonio">
+          <div class="stars">★★★★★</div>
+          <div class="result-pill">
+            <i data-lucide="trending-up" class="icon" width="11" height="11"></i>
+            Del 20% al 97–100% · República Dominicana
+          </div>
+          <p class="testimonio-text">"No teníamos ni idea del negocio. Pasamos de 20% de ocupación a meses con 97 y
+            100%. Se pagó en la primera reserva — lo que pensábamos que era una inversión muy grande, en cuestión de
+            días ya lo habíamos recuperado. Debimos haberlo hecho mucho antes."</p>
+          <div class="testimonio-author">
+            <div class="avatar">YC</div>
+            <div>
+              <p class="author-name">Yuri y César</p>
+              <p class="author-detail">Villa de lujo · República Dominicana</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonio">
+          <div class="stars">★★★★★</div>
+          <div class="result-pill">
+            <i data-lucide="trending-up" class="icon" width="11" height="11"></i>
+            Del 60% al 90% · Orlando, EE.UU.
+          </div>
+          <p class="testimonio-text">"Pasamos de 60% a 85% en las primeras propiedades, y las nuevas que tomamos después
+            tienen 90%. Aprendimos a tener rentabilidad en temporadas bajas — que es lo que realmente diferencia a un
+            anfitrión profesional."</p>
+          <div class="testimonio-author">
+            <div class="avatar">DC</div>
+            <div>
+              <p class="author-name">Daniela Carvajal</p>
+              <p class="author-detail">4 propiedades · Orlando, Estados Unidos</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonio">
+          <div class="stars">★★★★★</div>
+          <div class="result-pill">
+            <i data-lucide="trending-up" class="icon" width="11" height="11"></i>
+            98% de ocupación · Ventana 3 → 33 días
+          </div>
+          <p class="testimonio-text">"Uno se mete a esto y le caen mil reservas. Mi ventana de reserva era de 3 días,
+            ahora es de 33. Tuve 98% de ocupación este mes y todos los días me siguen llegando reservas. Si se me diera
+            la oportunidad volvería a tomar la mentoría con todo el gusto del mundo."</p>
+          <div class="testimonio-author">
+            <div class="avatar">MÍ</div>
+            <div>
+              <p class="author-name">Mía</p>
+              <p class="author-detail">Apartamento en playa · El Salvador</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+     RESULTADOS (gray)
+════════════════════════════════════ -->
+  <section class="resultados-section">
+    <div class="inner">
+      <div class="section-header is-center" style="text-align:center;">
+        <div class="section-label">
+          <span class="section-label-dot"></span>
+          Al finalizar el acompañamiento
+        </div>
+        <h2 class="section-title">Esto es lo que puedes <em>esperar lograr</em></h2>
+        <p class="section-sub is-center" style="max-width:600px; margin: 0.5rem auto 0;">Cada anfitrión llega con una
+          situación diferente. Lo que sí es consistente: <strong>quienes aplican el método, mueven sus números.</strong>
+        </p>
+      </div>
+
+      <div class="resultados-grid">
+
+        <div class="resultado">
+          <div class="resultado-num">1</div>
+          <div>
+            <p class="resultado-title">Más ingresos y más ocupación — sin bajar tu tarifa</p>
+            <p class="resultado-desc">Sabrás exactamente qué ajustar en tu anuncio, tu precio y tu estrategia para que
+              tus reservas aumenten. No con descuentos, sino con inteligencia.</p>
+          </div>
+        </div>
+
+        <div class="resultado">
+          <div class="resultado-num">2</div>
+          <div>
+            <p class="resultado-title">Empezar cada mes con una ocupación saludable</p>
+            <p class="resultado-desc">Dejarás de arrancar el mes con el calendario vacío esperando que lleguen reservas.
+              Aprenderás a construir una base sólida antes de que empiece cada período.</p>
+          </div>
+        </div>
+
+        <div class="resultado">
+          <div class="resultado-num">3</div>
+          <div>
+            <p class="resultado-title">Llenar entre semana, no solo los fines de semana</p>
+            <p class="resultado-desc">La mayoría llena jueves a domingo y el resto del calendario se queda vacío.
+              Aprenderás a atraer reservas entre semana — eso cambia completamente tu rentabilidad mensual.</p>
+          </div>
+        </div>
+
+        <div class="resultado">
+          <div class="resultado-num">4</div>
+          <div>
+            <p class="resultado-title">Anticiparte a las temporadas — no reaccionar a ellas</p>
+            <p class="resultado-desc">Sabrás qué viene antes de que llegue: temporada alta, baja, eventos locales,
+              competencia. Y tendrás una estrategia lista para cada escenario.</p>
+          </div>
+        </div>
+
+        <div class="resultado">
+          <div class="resultado-num">5</div>
+          <div>
+            <p class="resultado-title">Dejar de depender de descuentos o precios automáticos</p>
+            <p class="resultado-desc">Los precios inteligentes no siempre trabajan a tu favor. Aprenderás a controlar tu
+              propia estrategia de precios para maximizar ingresos.</p>
+          </div>
+        </div>
+
+        <div class="resultado">
+          <div class="resultado-num">6</div>
+          <div>
+            <p class="resultado-title">Hacer estudios de mercado antes de cualquier decisión</p>
+            <p class="resultado-desc">Sabrás leer tu mercado, analizar la competencia y determinar si una propiedad es
+              viable antes de firmar. Decisiones basadas en datos, no en intuición.</p>
+          </div>
+        </div>
+
+        <div class="resultado">
+          <div class="resultado-num">7</div>
+          <div>
+            <p class="resultado-title">Anuncios reactivados que estaban quietos o estancados</p>
+            <p class="resultado-desc">Si tienes propiedades que no generan lo que deberían, identificamos qué está
+              frenando el algoritmo y lo corregimos con pasos concretos.</p>
+          </div>
+        </div>
+
+        <div class="resultado">
+          <div class="resultado-num">8</div>
+          <div>
+            <p class="resultado-title">Certeza para tomar decisiones — sin improvisar</p>
+            <p class="resultado-desc">Métricas claras, proyecciones reales y un sistema que te permite saber qué esperar
+              de cada propiedad antes de tomar cualquier decisión.</p>
+          </div>
+        </div>
+
+        <div class="resultado">
+          <div class="resultado-num">9</div>
+          <div>
+            <p class="resultado-title">Las bases para escalar a más propiedades</p>
+            <p class="resultado-desc">Cuando dominas la operación de lo que ya tienes, escalar deja de ser un riesgo.
+              Aprenderás a captar nuevas propiedades y a evaluar si un negocio es viable antes de tomarlo.</p>
+          </div>
+        </div>
+
+        <div class="resultado">
+          <div class="resultado-num">10</div>
+          <div>
+            <p class="resultado-title">Una operación más automatizada y menos dependiente de ti</p>
+            <p class="resultado-desc">Menos apagado de incendios, más sistema. Para que tu negocio funcione incluso
+              cuando tú no estás mirando el celular.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="disclaimer-box">
+        Los resultados dependen de tu punto de partida, tu mercado y qué tanto aplicas. Lo que sí podemos garantizar es
+        el acompañamiento, el método y el acceso a todo lo que hemos aprendido en 8 años gestionando más de 130
+        alojamientos.
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+     BONOS (dark)
+════════════════════════════════════ -->
+  <section class="bonos-section">
+    <div class="inner">
+      <div class="section-header">
+        <div class="section-label section-label--dark">
+          <span class="section-label-dot"></span>
+          Lo que incluye tu beca
+        </div>
+        <h2 class="section-title section-title--white">Todo lo que recibes<br>con tu acceso.</h2>
+      </div>
+
+      <div class="bonos-grid">
+
+        <div class="bono">
+          <div class="bono-icon">
+            <i data-lucide="user-round" class="icon" width="20" height="20"></i>
+          </div>
+          <div>
+            <p class="bono-title">Sesiones 1 a 1 con Mentores Especializados</p>
+          </div>
+        </div>
+
+        <div class="bono">
+          <div class="bono-icon">
+            <i data-lucide="lock" class="icon" width="20" height="20"></i>
+          </div>
+          <div>
+            <p class="bono-title">Plataforma Privada con información y estrategias exclusivas</p>
+          </div>
+        </div>
+
+        <div class="bono">
+          <div class="bono-icon">
+            <i data-lucide="video" class="icon" width="20" height="20"></i>
+          </div>
+          <div>
+            <p class="bono-title">Sesiones de Acompañamiento En Vivo todas las semanas</p>
+          </div>
+        </div>
+
+        <div class="bono destacado">
+          <div class="bono-icon">
+            <i data-lucide="users" class="icon" width="20" height="20"></i>
+          </div>
+          <div>
+            <div class="bono-badge">Acceso directo con Sebastián</div>
+            <p class="bono-title">3 Sesiones de Mastermind Grupal directamente con Sebastián</p>
+            <p class="bono-desc">Sesiones en vivo donde trabajarás junto a otros anfitriones seleccionados — estrategia,
+              casos reales y respuestas directas de quien lleva 8 años en esto.</p>
+          </div>
+        </div>
+
+        <div class="bono destacado">
+          <div class="bono-icon">
+            <i data-lucide="tag" class="icon" width="20" height="20"></i>
+          </div>
+          <div>
+            <div class="bono-badge">Solo con la beca</div>
+            <p class="bono-title">Descuento exclusivo de beca</p>
+            <p class="bono-desc">Accedes a la mentoría con condiciones de precio especiales que no estarán disponibles
+              cuando esto salga al público general.</p>
+          </div>
+        </div>
+
+        <div class="bono destacado">
+          <div class="bono-icon">
+            <i data-lucide="graduation-cap" class="icon" width="20" height="20"></i>
+          </div>
+          <div>
+            <div class="bono-badge">Bono incluido</div>
+            <p class="bono-title">Curso de captación de propiedades</p>
+            <p class="bono-desc">Aprende a conseguir más propiedades para administrar — el método que usamos para llegar
+              a gestionar más de 130 alojamientos.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+     PARA QUIÉN (white)
+════════════════════════════════════ -->
+  <section class="paraquien-section">
+    <div class="inner">
+      <div class="section-header">
+        <div class="section-label">
+          <span class="section-label-dot"></span>
+          Esta beca es para ti si…
+        </div>
+        <h2 class="section-title">¿Esto te suena <em>familiar?</em></h2>
+      </div>
+
+      <div class="checks-grid">
+        <div class="check-item">
+          <span class="check-icon">
+            <i data-lucide="check" class="icon" width="13" height="13"></i>
+          </span>
+          Tienes una o más propiedades en Airbnb y sientes que podrían rendir más — pero no sabes exactamente qué
+          ajustar primero
+        </div>
+        <div class="check-item">
+          <span class="check-icon">
+            <i data-lucide="check" class="icon" width="13" height="13"></i>
+          </span>
+          Tu ocupación es inconsistente o tu tarifa está por debajo de lo que el mercado aguanta
+        </div>
+        <div class="check-item">
+          <span class="check-icon">
+            <i data-lucide="check" class="icon" width="13" height="13"></i>
+          </span>
+          Quieres escalar — más propiedades, más ingresos — pero necesitas un sistema, no solo más esfuerzo
+        </div>
+        <div class="check-item">
+          <span class="check-icon">
+            <i data-lucide="check" class="icon" width="13" height="13"></i>
+          </span>
+          Estás listo para tomar acción real, no solo consumir más contenido
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+     FINAL CTA (dark)
+════════════════════════════════════ -->
+  <section class="final-cta-section">
+    <div class="final-cta-inner">
+      <h2>Llegamos a 100K.<br><em>Tú eres la razón.</em></h2>
+      <p>Esta beca no es un descuento de temporada. Es un acceso diferente — porque llegamos a 100K juntos y quiero que
+        las personas de esta comunidad sean las primeras en beneficiarse.</p>
+      <div class="cta-block cta-block--center">
+        <a class="cta-btn" href="#agendar">Quiero acceder a mi beca</a>
+        <span class="microcopy microcopy--dark">
+          <i data-lucide="lock" class="icon" width="12" height="12"></i>
+          Sin costo · En la llamada vemos si aplica para tu perfil
+        </span>
+      </div>
+    </div>
+    <p class="final-disclaimer">Cuando se llenen los espacios de esta semana, esto se cierra.</p>
+  </section>
+
+  <script>lucide.createIcons();</script>
+</body>
+
+</html>
