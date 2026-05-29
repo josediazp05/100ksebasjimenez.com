@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuestros Casos de Éxito — Mentoría Airbnb</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --red: #FF385C;
+      --red-dark: #C8102E;
+      --red-light: #FFF0F3;
+      --red-muted: #FFD6DF;
+      --dark: #101010;
+      --dark-2: #181818;
+      --dark-card: #1E1E1E;
+      --white: #FFFFFF;
+      --gray-50: #F7F7F7;
+      --gray-100: #EFEFEF;
+      --gray-200: #E0E0E0;
+      --gray-400: #717171;
+      --gray-500: #969696;
+      --text: #111111;
+      --text-2: #2E2E2E;
+      --text-3: #525252;
+    }
+
+    body {
+      font-family: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .icon {
+      display: block;
+      flex-shrink: 0;
+    }
+
+    /* ────────────────────────────────
+       STICKY HEADER
+    ──────────────────────────────── */
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--dark);
+      border-bottom: 1px solid #222;
+      height: 58px;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .sticky-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      flex-shrink: 0;
+    }
+
+    .sticky-logo-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      background: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .sticky-cta {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      color: white;
+      background: var(--red);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: filter 0.15s;
+    }
+
+    .sticky-cta:hover {
+      filter: brightness(1.1);
+    }
+
+    /* ────────────────────────────────
+       SHARED LAYOUT
+    ──────────────────────────────── */
+    .inner {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    /* ────────────────────────────────
+       SECTION LABEL
+    ──────────────────────────────── */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--red);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      background: var(--red-light);
+      border: 1px solid var(--red-muted);
+      border-radius: 100px;
+      padding: 5px 13px 5px 9px;
+    }
+
+    .section-label-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* ────────────────────────────────
+       CTA BUTTON
+    ──────────────────────────────── */
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 10px;
+      border: 1px solid #F14B4B;
+      background: radial-gradient(105.71% 105.71% at 50% -5.71%, #FF637F 0%, #FF2A50 34.87%, #DC253A 100%);
+      box-shadow: 0px 4px 4px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 0px 0px #A50E0E;
+      min-height: 67px;
+      padding: 0 36px;
+      color: #fff;
+      font-family: 'Figtree', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: filter 0.15s, transform 0.12s, box-shadow 0.12s;
+      text-wrap: balance;
+      text-align: center;
+    }
+
+    .cta-btn:hover {
+      filter: brightness(1.07);
+    }
+
+    .cta-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0px 2px 2px 0px rgba(255, 255, 255, 0.2) inset, 0px 1px 0px 0px #A50E0E;
+    }
+
+    .cta-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .microcopy {
+      font-size: 0.78rem;
+      color: var(--gray-500);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .microcopy--dark {
+      color: #555;
+    }
+
+    /* ────────────────────────────────
+       HERO
+    ──────────────────────────────── */
+    .hero {
+      background: var(--white);
+      padding: 4rem 2rem 3rem;
+    }
+
+    .hero-stack {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--red-light);
+      color: var(--red);
+      font-size: 0.625rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      padding: 5px 13px;
+      border-radius: 100px;
+      border: 1px solid var(--red-muted);
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+    }
+
+    .headline {
+      font-size: clamp(1.6rem, 4.6vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.12;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+    }
+
+    .headline em {
+      font-style: normal;
+      color: var(--red);
+    }
+
+    .sub {
+      font-size: 1.03rem;
+      color: var(--text-3);
+      line-height: 1.75;
+      max-width: 680px;
+    }
+
+    .sub strong {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* ────────────────────────────────
+       CASOS / VIDEO GRID
+    ──────────────────────────────── */
+    .casos-section {
+      background: var(--gray-50);
+      border-top: 1px solid var(--gray-200);
+      padding: 4rem 2rem 5rem;
+    }
+
+    .casos-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .caso-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+
+    .caso-card:hover {
+      border-color: var(--red-muted);
+      box-shadow: 0 6px 24px rgba(255, 56, 92, 0.10);
+      transform: translateY(-2px);
+    }
+
+    .caso-thumb {
+      position: relative;
+      aspect-ratio: 16/9;
+      background: var(--gray-100);
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .caso-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .caso-thumb iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      position: absolute;
+      inset: 0;
+    }
+
+    .caso-play {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(16, 16, 16, 0.18);
+      transition: background 0.2s;
+    }
+
+    .caso-thumb:hover .caso-play {
+      background: rgba(16, 16, 16, 0.30);
+    }
+
+    .caso-play-btn {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--red);
+      border: 3px solid rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      transition: transform 0.2s, filter 0.2s;
+    }
+
+    .caso-thumb:hover .caso-play-btn {
+      transform: scale(1.08);
+      filter: brightness(1.05);
+    }
+
+    .caso-body {
+      padding: 1.1rem 1.2rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .caso-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+    }
+
+    .caso-watch {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--red);
+    }
+
+    /* ────────────────────────────────
+       FINAL CTA (dark)
+    ──────────────────────────────── */
+    .final-cta-section {
+      background: var(--dark);
+      padding: 6rem 2rem 5rem;
+      text-align: center;
+      border-top: 1px solid #1e1e1e;
+    }
+
+    .final-cta-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .final-cta-inner h2 {
+      font-size: clamp(1.75rem, 4.5vw, 3rem);
+      font-weight: 800;
+      color: white;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.028em;
+      line-height: 1.15;
+    }
+
+    .final-cta-inner h2 em {
+      font-style: normal;
+      color: var(--red);
+    }
+
+    .final-cta-inner p {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 2.5rem;
+      line-height: 1.75;
+    }
+
+    /* ────────────────────────────────
+       RESPONSIVE — TABLET (≥768px)
+    ──────────────────────────────── */
+    @media (min-width: 768px) {
+      .casos-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* ────────────────────────────────
+       RESPONSIVE — DESKTOP (≥1000px)
+    ──────────────────────────────── */
+    @media (min-width: 1000px) {
+      .casos-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* ────────────────────────────────
+       RESPONSIVE — MOBILE (<600px)
+    ──────────────────────────────── */
+    @media (max-width: 599px) {
+      .hero {
+        padding: 2.5rem 1.25rem 2rem;
+      }
+
+      .casos-section,
+      .final-cta-section {
+        padding: 3rem 1.25rem 3.5rem;
+      }
+
+      .badge {
+        font-size: 0.8rem;
+      }
+
+      .sub {
+        font-size: 1.05rem;
+        line-height: 1.65;
+      }
+
+      .caso-title {
+        font-size: 1.12rem;
+      }
+
+      .caso-watch {
+        font-size: 1.02rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════
+     HERO
+  ════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-stack">
+      <div class="badge">
+        <i data-lucide="trophy" class="icon" width="12" height="12"></i>
+        Casos de éxito reales
+      </div>
+      <h1 class="headline">
+        Nuestros <em>Casos de Éxito</em>
+      </h1>
+      <p class="sub">
+        Anfitriones y administradores alrededor de todo el mundo que han incrementado sus
+        <strong>reservas</strong>, su <strong>rentabilidad</strong> y el <strong>número de alojamientos</strong>
+        de sus negocios.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+     CASOS / VIDEO GRID
+  ════════════════════════════════════ -->
+  <section class="casos-section">
+    <div class="inner">
+      <div class="casos-grid" id="casos-grid"></div>
+    </div>
+  </section>
+
+  <script>
+    // ─────────────────────────────────────────────
+    //  CASOS DE ÉXITO — datos
+    //  Para cada video: pon una imagen en assets/{id}.jpg
+    //  (id = el código del video de YouTube).
+    //  Si la imagen no existe, usa el thumbnail de YouTube.
+    // ─────────────────────────────────────────────
+    const casos = [
+      { id: "OH9WAS08KGg", title: "Opiniones REALES de la Mentoría 💣" },
+      { id: "zhDgmY86Exg", title: "Yury y Cesar: Pasaron del 20% de Reservas al 97% en su Villa de Lujo" },
+      { id: "H6ekbr61AYs", title: "Daniela Carvajal: Pasamos de 60% de Reservas a tener +90% en Nuestros Alojamientos" },
+      { id: "CaQYzPtVY7c", title: "Jairo: De rentar solo 8 noches a rentar más de 27 noches al mes en sus AIRBNBS" },
+      { id: "yvYDOvONytw", title: "Ana y Vladímir: Pasaron de 4,000 a 10,000 USD al Mes en su Negocio de Airbnb" },
+      { id: "OPNKZTIk750", title: "Juan: De esperar reservas a duplicar sus ingresos en Airbnb" },
+      { id: "GAQbqXhl8lU", title: "Caso Edgar García: 15,000 USD con AIRBNB en Temporada Baja en Tulum" },
+      { id: "jBUZ637kh54", title: "Jarvis: Del 20% de Reservas a 2 Meses seguidos sobre el 80% de Ocupación" },
+      { id: "97BL5KvdLRk", title: "Alberto: Reservas de +2,000 USD e incremento de la Ocupación en AIRBNB" },
+      { id: "JUOIKOAUzgo", title: "Pasó de 30% a 80% de ocupación en Airbnb en solo 48 horas y en temporada baja" },
+      { id: "hIv2Q-LPvsI", title: "RentaDep logró subir la OCUPACIÓN y RENTABILIDAD de más de 80 propiedades" },
+      { id: "HMAUvs_pbNM", title: "Cómo Mauro optimizó su ESTRATEGIA DE PRECIOS y aumentó ingresos en AIRBNB" },
+      { id: "wrjkRIbqGlI", title: "Cómo Keylin pasó de 30% a 95% de ocupación en AIRBNB y abrió 3 nuevos alojamientos" },
+      { id: "xippv5voGTM", title: "Catalina: Calendarios sobre el 80% de Ocupación en sus AIRBNB's sin REGALAR PRECIOS" },
+      { id: "lpzTIZ_G290", title: "Caso Esteban Abuhadba: +20,000 USD al Mes en Airbnb" },
+      { id: "r9nAt-yoGew", title: "Manuela: De rentar solo 2 Noches a Superar 50% de Ocupación en sus Glampings" },
+      { id: "-Mx3nYv8NUY", title: "Caso Nicolás: +90% de Reservas en 4 Alojamientos con el Primer Mes de Acompañamiento" },
+      { id: "UJ_ogUeQntY", title: "Catalina y Hector: En menos de 6 Semanas logramos llenar sus Calendarios de AIRBNB" },
+      { id: "xqinWpOOaE8", title: "Subió sus precios y aun así logró 93% de ocupación en AIRBNB (en plena temporada baja)" },
+      { id: "zhY8IiCS8wA", title: "Caso Jaime: De 20% de Reservas a 90% de Reservas en sus Alojamientos" },
+      { id: "807yN2P2it8", title: "Cómo Pipe pasó del 30% al 90% de ocupación y duplicó sus alojamientos en AIRBNB" },
+      { id: "H0Dd0GNrNtw", title: "Cómo Sebastián pasó de 5 a 25 propiedades en AIRBNB y aprendió a escalar su Negocio" },
+      { id: "uHXCxafpcJM", title: "Caso Maria Quintero: Pasamos de 50% de Reservas al 80% EN AIRBNB" },
+      { id: "YfOmqrA9_38", title: "Mauricio Millán: Ahora mantengo entre el 85-90% en todos los espacios" },
+      { id: "FCUAcoqtE8I", title: "Caso Jesús: De 0 reservas a RESERVAS inmediatas en menos de 24 horas" },
+      { id: "0GevPOrzmOU", title: "Claudia: Pase de 3 a 9 Alojamientos y tener +80% de Reservas" },
+      { id: "wBmlvO80ueY", title: "Javier: 19 Reseñas de 5 Estrellas en su AIRBNB empezando desde 0" },
+      { id: "HYfqHRXT6UY", title: "Cómo Felipe aumentó la ocupación y las reservas largas de sus 80 propiedades en AIRBNB (ORLANDO)" },
+      { id: "yvDqywkP5Eo", title: "Diego Nuñez: Paso de tener 40% de Reservas a tener el 80% en +4 Alojamientos" },
+      { id: "9L5bLRK5XLE", title: "Cómo Natalia aumentó la ocupación de 70 propiedades del 20% al 70% en menos de 30 días" },
+      { id: "wYIvvT0BPHk", title: "Caso Daniela Claassen: Doblar el Precio por Noche y Proteger Fechas Importantes" },
+      { id: "29NX4aNMBeo", title: "Caso Juan Rizzo: Paso de 1 a 8 propiedades y resultados mes tras mes" },
+      { id: "wMKSuGGMVGA", title: "Jorge: Tuvimos meses en 0 y todo cambio cuando llegamos a ti" },
+      { id: "fn9Y6ZX6Pls", title: "Cómo David aumentó la RENTABILIDAD de sus alojamientos en AIRBNB en Cartagena" },
+      { id: "QssQ8k2gGXU", title: "16 alojamientos en Airbnb: cómo Álvaro multiplicó su ocupación entendiendo el algoritmo" },
+      { id: "G0ykXvhtRyU", title: "7 años en AIRBNB y aun así descubrieron algo que cambió sus resultados por completo" },
+      { id: "15Fg9xXd7fQ", title: "Cómo Edwin llenó su calendario de AIRBNB en solo 15 días aplicando estrategias de precios" },
+      { id: "kp5KTzUO4l0", title: "Catalina (elmiradordejohnnycay): Con 2 Horas tuvo lo necesario para comenzar a conseguir reservas" },
+      { id: "WKmbEU8JwZI", title: "Juan Diego: Teniamos 10% de Reservas | Ahora tenemos +80% de Reservas" },
+      { id: "-ioLoWnb_YI", title: "Naty: El progreso se nota gracias a las Mentorías Personalizadas" },
+      { id: "a2uC-AsbxMQ", title: "Juan: Mira su gráfica de resultados en las primeras sesiones" },
+      { id: "1u68A3LO5FI", title: "Alejandra: 14 Alojamientos en su Portafolio y una Estrategia Clara en su Negocio" },
+      { id: "qt-BZBYWD1s", title: "Angélica: Tengo ocupaciones sobre el 80% y estoy creciendo mi portafolio" },
+      { id: "2ui4X8MTqRk", title: "Manuel Serrato: Este NO es un curso, es un verdadero acompañamiento" },
+      { id: "LL3eLzIti0k", title: "Diana y Day: La Mentoría de Sebas nos permitió tener una estrategia multiplataforma efectiva" },
+      { id: "1IiBFvmzETg", title: "Ana: La sesión contigo fue un antes y un después en mi negocio" },
+      { id: "RET6ALuEY3s", title: "Jhonnathan Rivera: Mientras menos trabajo yo, mejor. Y eso ya está pasando." },
+      { id: "K4zu9rwa5d4", title: "Cristian Maldonado: Mi rentabilidad y precio por noche mejoro gracias a tus estrategias" },
+      { id: "_T1_RsGQFPo", title: "Nataly: Conseguí mi primera reserva justo al día siguiente de seguir tus instrucciones" },
+      { id: "SXjX9oeqZT4", title: "Caso Luna: Incremento en sus Reservas y Portafolio de Propiedades" },
+      { id: "pgOx0KdJwNs", title: "Caso Liliana Siani: Casi 100% de Ocupación en PLENA TEMPORADA BAJA" },
+      { id: "zw9ihRzBfG4", title: "Caso Nicol Patricia: Transformó su miedo en confianza y hoy su anuncio no deja de vender" },
+      { id: "loE2TrxM9aw", title: "Caso Juan Pablo: Fue un ANTES y un DESPUÉS (Aumento de Reservas y Facturación)" },
+      { id: "kQe5lSfphcY", title: "Caso Felipe: Escalabilidad en su Negocio de Rentas Cortas y Estrategias Efectivas" },
+      { id: "4jVC72sjuDg", title: "Caso Diana Henao: Reservas Inmediatas después de la Primera Asesoría" },
+      { id: "VmHtkU_rk0g", title: "Caso Daniel: 70% de Reservas Operando sus Propiedades (Desde 0)" },
+      { id: "ZIpbppmTHqg", title: "Caso Nataly: De 0 a 100 en Negociaciones y Estructura de Negocio" },
+      { id: "OsINkM3m3Ms", title: "Caso Daniel: Resultados inmediatos en sus Alojamientos (+Reservas +Rentabilidad)" },
+      { id: "iq3n6hj9QTY", title: "Caso Luna: Extrabajadora de Airbnb (+4 de Meses con 90% de Reservas)" },
+      { id: "oQJrJ6dm07E", title: "Caso Tata y Alejo: 90% de Reservas en Temporada Baja" },
+      { id: "BQCNUTOJmBE", title: "Caso Alejandra y Felipe: Pasaron de 250 USD a 1,500 USD al Mes en su Propiedad de AIRBNB" },
+      { id: "JxKdJ7AHErQ", title: "Caso Leidy Ramos: Incremento en un 20% la ocupación de su AIRBNB" },
+      { id: "UbEU_gsQwtU", title: "Caso Yesmid Serrano: De calendario vacío a +3% de conversión" },
+      { id: "EGNbrH9dgqw", title: "Caso Tata y Alejo: +5,000 USD al Mes en uno de sus AIRBNBS" },
+      { id: "gv78bBEo8O8", title: "Alvaro Quindio" },
+      { id: "sFipT2v0xMQ", title: "Sandra: Incremento su Ocupación al 80% con Reservas mas extensas en AIRBNB" },
+      { id: "wKwOH6MEnF4", title: "CASO FRESSIA: Incremento su % de Ocupación en AIRBNB en un 20-30%" },
+      { id: "mdj8fGogyZY", title: "CASO FERNANDA: Paso de meses en cero reservas a llenar temporada baja" },
+      { id: "VNRMmAgTWvw", title: "Alexander: TRIPLICO sus Ingresos en Plena Temporada Baja en AIRBNB" },
+      { id: "nLpm05DfG_8", title: "Caso Fabrizio: \"En un Mes recuperamos la inversión que hicimos en la Mentoría\"" },
+      { id: "sShBO-jJevU", title: "Caso Mia: 97% de Ocupación en su AIRBNB" },
+      { id: "b5Y1HCAc5Kc", title: "Caso Valen Barrada: Paso del 19% de Ocupación a +80% de Ocupación" },
+      { id: "r2_-j8f-TzU", title: "Valentina Sarmiento: Calendario Full en todos sus Alojamientos de AIRBNB" }
+    ];
+
+    const grid = document.getElementById("casos-grid");
+
+    casos.forEach((c) => {
+      const card = document.createElement("article");
+      card.className = "caso-card";
+
+      const thumb = document.createElement("div");
+      thumb.className = "caso-thumb";
+      thumb.setAttribute("role", "button");
+      thumb.setAttribute("tabindex", "0");
+      thumb.setAttribute("aria-label", "Reproducir: " + c.title);
+
+      const img = document.createElement("img");
+      img.loading = "lazy";
+      img.alt = c.title;
+      // Imagen local en assets/{id}.webp — si no existe, cae al thumbnail de YouTube
+      img.src = "assets/" + c.id + ".webp";
+      img.onerror = function () {
+        this.onerror = null;
+        this.src = "https://i.ytimg.com/vi/" + c.id + "/hqdefault.jpg";
+      };
+
+      const play = document.createElement("div");
+      play.className = "caso-play";
+      play.innerHTML =
+        '<span class="caso-play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>';
+
+      thumb.appendChild(img);
+      thumb.appendChild(play);
+
+      const playVideo = () => {
+        const iframe = document.createElement("iframe");
+        iframe.src = "https://www.youtube.com/embed/" + c.id + "?rel=0&autoplay=1";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+        iframe.allowFullscreen = true;
+        iframe.title = c.title;
+        thumb.innerHTML = "";
+        thumb.style.cursor = "default";
+        thumb.appendChild(iframe);
+      };
+
+      thumb.addEventListener("click", playVideo);
+      thumb.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          playVideo();
+        }
+      });
+
+      const body = document.createElement("div");
+      body.className = "caso-body";
+      body.innerHTML =
+        '<p class="caso-title">' + c.title + '</p>' +
+        '<span class="caso-watch">Ver video <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>';
+
+      card.appendChild(thumb);
+      card.appendChild(body);
+      grid.appendChild(card);
+    });
+
+    lucide.createIcons();
+  </script>
+</body>
+
+</html>
