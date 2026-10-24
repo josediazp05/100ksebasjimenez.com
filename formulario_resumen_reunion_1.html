@@ -21,6 +21,8 @@
     label { display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
     textarea { width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; color: var(--text); background: #fafafa; transition: border-color 0.15s, box-shadow 0.15s; outline: none; font-family: inherit; min-height: 160px; resize: vertical; line-height: 1.6; }
     textarea:focus { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(90,79,207,0.1); background: #fff; }
+    select { width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; color: var(--text); background: #fafafa; font-family: inherit; }
+    select:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px rgba(90,79,207,0.1); background: #fff; }
     .dropzone { border: 2px dashed var(--border); border-radius: 8px; padding: 28px 20px; text-align: center; cursor: pointer; transition: border-color 0.15s, background 0.15s; background: #fafafa; }
     .dropzone:hover, .dropzone.drag-over { border-color: var(--brand); background: #f0effe; }
     .dropzone-icon { font-size: 28px; margin-bottom: 8px; }
@@ -85,6 +87,14 @@
       </div>
     </div>
 
+    <div class="field">
+      <label for="idioma">Idioma del resumen</label>
+      <select id="idioma" name="idioma">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+
     <button type="submit" class="btn-primary" id="btn-submit">
       <span id="btn-text">Generar resumen</span>
     </button>
@@ -118,7 +128,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
 
 <script>
-  const WEBHOOK_URL = 'https://webhooks.josediazdsg.com/webhook/resumen-reunion';
+  const WEBHOOK_URL = 'https://n8n.josedsg.com/webhook/resumen-reunion';
 
   // Configurar worker de pdfjs
   pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
@@ -202,6 +212,7 @@
 
     const tabActiva = document.querySelector('.tab-btn.active').dataset.tab;
     const texto = document.getElementById('texto').value.trim();
+    const idioma = document.getElementById('idioma').value;
     const archivo = archivoInput.files[0];
 
     if (tabActiva === 'archivo' && !archivo) { mostrarError('Por favor selecciona un archivo.'); return; }
@@ -228,12 +239,19 @@
       const response = await fetch(WEBHOOK_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ texto: textoFinal })
+        body: JSON.stringify({ texto: textoFinal, idioma })
       });
 
-      if (!response.ok) throw new Error('Error del servidor: ' + response.status);
+      const responseText = await response.text();
+      let data;
+      try { data = JSON.parse(responseText); } catch { data = null; }
 
-      const data = await response.json();
+      if (!response.ok || data?.success === false) {
+        const detalle = data?.mensaje || data?.message || data?.error || responseText;
+        throw new Error(detalle || 'Error del servidor: ' + response.status);
+      }
+
+      if (!data) throw new Error('La automatización no devolvió un resultado válido.');
 
       if (data.success && data.pdfBase64) {
         const byteCharacters = atob(data.pdfBase64);
@@ -249,11 +267,7 @@
         btnDescarga.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v8M5 7l3 3 3-3M3 12h10" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Descargar Plan de Acción (PDF)';
         resultadoMsgEl.textContent = data.mensaje || 'Tu plan de acción está listo.';
         mostrarResultado();
-      } else {
-        resultadoMsgEl.textContent = 'Transcripción recibida en n8n.';
-        btnDescarga.style.display = 'none';
-        mostrarResultado();
-      }
+      } else throw new Error(data.mensaje || 'La automatización no devolvió el PDF del resumen.');
 
     } catch (err) {
       console.error(err);
